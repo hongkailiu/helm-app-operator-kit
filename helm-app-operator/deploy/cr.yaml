@@ -1,8 +1,6 @@
-apiVersion: example.com/v1alpha1
-kind: ExampleApp
+apiVersion: "app.example.com/v1alpha1"
+kind: "SVTGo"
 metadata:
-  name: my-example-app
-  labels:
-    app: example-app
+  name: "example"
 spec:
-  size: 2
+  replicaCount: 2
