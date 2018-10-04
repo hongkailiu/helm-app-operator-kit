@@ -15,9 +15,9 @@ spec:
       containers:
       - name: svt-go-operator
         image: quay.io/hongkailiu/h-svt-go-operator:v0.0.1
-        imagePullPolicy: Always
-          env:
-            - name: WATCH_NAMESPACE
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.namespace
+        env:
+          - name: WATCH_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+      imagePullPolicy: Always
