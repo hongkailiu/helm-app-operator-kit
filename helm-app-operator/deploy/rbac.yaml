@@ -42,6 +42,15 @@ rules:
   - routes
   verbs:
   - "*"
+###https://github.com/operator-framework/helm-app-operator-kit/issues/33
+###https://github.com/uruddarraju/kubernetes-rbac-policies
+###time="2018-10-05T01:52:12Z" level=error msg="release helm-app-operator-example failed: namespaces \"ttt\" is forbidden: User \"system:serviceaccount:ttt:default\" cannot get namespaces in the namespace \"ttt\": no RBAC policy matched"
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - "get"
 
 ---
 
@@ -57,31 +66,3 @@ roleRef:
   name: svt-go-operator
   apiGroup: rbac.authorization.k8s.io
 
----
-###https://github.com/operator-framework/helm-app-operator-kit/issues/33
-###https://github.com/uruddarraju/kubernetes-rbac-policies
-###time="2018-10-05T01:52:12Z" level=error msg="release helm-app-operator-example failed: namespaces \"ttt\" is forbidden: User \"system:serviceaccount:ttt:default\" cannot get namespaces in the namespace \"ttt\": no RBAC policy matched"
-kind: ClusterRole
-apiVersion: authorization.openshift.io/v1
-metadata:
-  name: abc-role
-rules:
-- apiGroups: [""]
-  resources:
-  - namespaces
-  verbs: ["get"]
-
-
----
-kind: ClusterRoleBinding
-apiVersion: authorization.openshift.io/v1
-metadata:
-  name: abc-role-binding
-subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: ttt
-roleRef:
-  kind: ClusterRole
-  name: abc-role
-  apiVersion: authorization.openshift.io/v1
