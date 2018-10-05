@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: svt-go-operator
-        image: quay.io/hongkailiu/h-svt-go-operator:v0.0.1
+        image: quay.io/hongkailiu/h-svt-go-operator:v0.0.2
         imagePullPolicy: Always
         env:
           - name: WATCH_NAMESPACE
