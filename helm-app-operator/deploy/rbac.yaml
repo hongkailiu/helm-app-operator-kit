@@ -30,6 +30,18 @@ rules:
   - statefulsets
   verbs:
   - "*"
+- apiGroups:
+  - apps.openshift.io
+  resources:
+  - deploymentconfigs
+  verbs:
+  - "*"
+- apiGroups:
+  - route.openshift.io
+  resources:
+  - routes
+  verbs:
+  - "*"
 
 ---
 
