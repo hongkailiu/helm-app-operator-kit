@@ -1,0 +1,13 @@
+---
+kind: ClusterRoleBinding
+apiVersion: authorization.openshift.io/v1
+metadata:
+  name: abc-role-binding
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: ttt
+roleRef:
+  kind: ClusterRole
+  name: abc-role
+  apiVersion: authorization.openshift.io/v1
