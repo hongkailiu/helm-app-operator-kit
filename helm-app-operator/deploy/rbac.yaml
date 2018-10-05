@@ -72,4 +72,4 @@ subjects:
 roleRef:
   kind: ClusterRole
   name: abc-role
-  apiVersion: rbac.authorization.k8s.io/v1alpha1
+  apiVersion: authorization.openshift.io/v1
